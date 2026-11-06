@@ -1,0 +1,44 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.piloterr/mcp",
+  "title": "Piloterr",
+  "description": "Scrape 300+ websites (Amazon, LinkedIn, Google, Zillow, Crunchbase…) as structured JSON with one AP…",
+  "version": "0.1.0",
+  "websiteUrl": "https://www.piloterr.com",
+  "repository": {
+    "url": "https://github.com/piloterr/piloterr-mcp",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@piloterr/mcp",
+      "version": "0.1.0",
+      "environmentVariables": [
+        {
+          "name": "PILOTERR_API_KEY",
+          "description": "Piloterr API key.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ],
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.piloterr.com/",
+      "headers": [
+        {
+          "name": "x-api-key",
+          "description": "Piloterr API key.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

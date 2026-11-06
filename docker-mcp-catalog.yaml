@@ -1,0 +1,28 @@
+name: piloterr
+image: mcp/piloterr
+type: server
+meta:
+  category: data
+  tags:
+    - piloterr
+    - web-scraping
+    - scraper-api
+    - data-extraction
+    - scraping
+about:
+  title: Piloterr
+  description: Scrape 300+ websites (Amazon, LinkedIn, Google, Zillow, Crunchbase…) as structured JSON with one API.
+  icon: https://raw.githubusercontent.com/piloterr/piloterr-mcp/main/assets/icon-400.png
+source:
+  project: https://github.com/piloterr/piloterr-mcp
+run:
+  allowHosts:
+    - api.piloterr.com:443
+config:
+  description: Configure your Piloterr API key.
+  secrets:
+    - name: piloterr.api_key
+      env: PILOTERR_API_KEY
+      example: YOUR_API_KEY
+      description: Required API key from https://app.piloterr.com.
+      required: true

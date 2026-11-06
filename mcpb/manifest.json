@@ -1,0 +1,76 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/mcpb/main/schemas/mcpb-manifest-v0.4.schema.json",
+  "manifest_version": "0.4",
+  "name": "piloterr-mcp",
+  "display_name": "Piloterr",
+  "version": "0.1.0",
+  "description": "Piloterr web scraping API for Claude.",
+  "long_description": "Scrape 300+ websites (Amazon, LinkedIn, Google, Zillow, Crunchbase…) as structured JSON with one API.",
+  "author": {
+    "name": "Piloterr",
+    "email": "contact@piloterr.com",
+    "url": "https://www.piloterr.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/piloterr/piloterr-mcp"
+  },
+  "homepage": "https://www.piloterr.com",
+  "documentation": "https://github.com/piloterr/piloterr-mcp#readme",
+  "support": "mailto:contact@piloterr.com",
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/dist/stdio.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/dist/stdio.js"],
+      "env": {
+        "PILOTERR_API_KEY": "${user_config.PILOTERR_API_KEY}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "search_endpoints",
+      "description": "Search the 391 Piloterr endpoints."
+    },
+    {
+      "name": "get_endpoint",
+      "description": "Describe the parameters of one endpoint."
+    },
+    {
+      "name": "call_endpoint",
+      "description": "Call one Piloterr endpoint and return the result."
+    },
+    {
+      "name": "usage",
+      "description": "Show API usage and remaining credits."
+    }
+  ],
+  "tools_generated": false,
+  "keywords": [
+    "mcp",
+    "piloterr",
+    "web-scraping",
+    "scraper-api",
+    "data-extraction",
+    "scraping"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=20"
+    }
+  },
+  "user_config": {
+    "PILOTERR_API_KEY": {
+      "type": "string",
+      "title": "Piloterr API key",
+      "description": "Your API key from https://app.piloterr.com.",
+      "required": true,
+      "sensitive": true
+    }
+  }
+}
